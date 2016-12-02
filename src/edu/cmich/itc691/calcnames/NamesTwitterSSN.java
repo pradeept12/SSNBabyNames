@@ -27,8 +27,8 @@ public class NamesTwitterSSN {
 		String str[] = null;
 		String name = null;
 		String gender = null;
-		int count = 0;
-		int compareCount = 0;
+		int rank = 0;
+		int compareRank = 0;
 		while ((line = br.readLine()) != null) {
 
 			str = line.split(",");
@@ -39,13 +39,13 @@ public class NamesTwitterSSN {
 
 			name = str[0];
 			gender = str[1].split("~")[0];
-			count = Integer.parseInt(str[1].split("~")[1]);
+			rank = Integer.parseInt(str[1].split("~")[1]);
 			if (names.containsKey(name)) {
 
 				String cnt = names.get(name).split("~")[1];
-				compareCount = Integer.parseInt(cnt);
+				compareRank = Integer.parseInt(cnt);
 
-				if (count > compareCount) {
+				if (rank < compareRank) {
 					names.put(name, str[1]);
 				}
 
